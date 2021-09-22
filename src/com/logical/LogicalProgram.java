@@ -2,28 +2,24 @@ package com.logical;
 import java.util.Scanner;
 
 public class LogicalProgram {
-	public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter coupon number");
-        char n = sc.next().charAt(0);
+	static Scanner sc=new Scanner(System.in);
 
-        boolean[] isCollected = new boolean[n];
-        int count = 0;
-        int distinct = 0;
-        /*
-         * This loop repeatedly chose a random number and
-         * check whether it is a new one
-         */
-        while (distinct < n) {
-            int value = (int) (Math.random() * n);
-            count++;
-            if (!isCollected[value]) {
-                distinct++;
-                isCollected[value] = true;
-            }
-        }
-        /* print the total number of cards collected */
-        System.out.println("Coupon code is : " + count);
+    public static void main(String[] args){
+        System.out.println("Press button to start and end");
+        sc.next();
+        stopwatchSimulator();
+
+    }
+    public static void stopwatchSimulator()
+    {
+        long startTime = System.currentTimeMillis();
+        System.out.println("press any button to start and end");
+        sc.next();
+        long stopTime= System.currentTimeMillis();
+        long time= stopTime- startTime;
+        System.out.println("total time required "+time+" millisecond");
+        System.out.println("total time required "+time/1000+" second");
+
 	}
 
 }
