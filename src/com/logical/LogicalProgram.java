@@ -3,30 +3,30 @@ import java.util.Scanner;
 
 public class LogicalProgram {
 
-    public static int num1 = 0;
-    public static int num2 = 1;
-
-    public static void main(String[] args) {
+	public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         fibonacciSeries(sc);
     }
     /* Method use:
-     * use for loop for iterates loop to given
-     * range and print outcome values of Fibonacci series
+     * When the number is equal to the sum of its positive divisors
+     * excluding the number, it is called a Perfect Number.
      */
     public static void fibonacciSeries(Scanner sc){
-        System.out.println("Enter range Fibonacci Series number :");
-        int Num = sc.nextInt();
-        for (int i=1; i<=Num; i++){
-            System.out.print(+num1+" + "+num2);
-           int fib = num1 + num2;
-           num1=num2;
-           num2=fib;
-           System.out.println(" = "+fib);
-
+        long sum = 0;
+        int i = 1;
+        System.out.println("Enter number :");
+        int n = sc.nextInt();
+        while (i <= n / 2) {
+            if (n % i == 0) {
+                sum += i;
+            }
+            i++;
         }
+        if (sum == n) {
+            System.out.println(n + " is a Perfect Number ");
+        } else
+            System.out.println(n + " is not a Perfect Number ");
         sc.close();
-
 	}
 
 }
