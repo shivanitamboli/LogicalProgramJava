@@ -5,28 +5,28 @@ public class LogicalProgram {
 
 	public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        fibonacciSeries(sc);
+        System.out.println("Enter number :");
+        int num = sc.nextInt();
+        primeNUmber(num);
+        sc.close();
     }
     /* Method use:
-     * When the number is equal to the sum of its positive divisors
-     * excluding the number, it is called a Perfect Number.
+     * the number is divided greater than 1 and divided by 1 or itself is referred to as the Prime
+     * number. 0 and 1 are not counted as prime numbers.
      */
-    public static void fibonacciSeries(Scanner sc){
-        long sum = 0;
-        int i = 1;
-        System.out.println("Enter number :");
-        int n = sc.nextInt();
-        while (i <= n / 2) {
-            if (n % i == 0) {
-                sum += i;
+    public static void primeNUmber(int num){
+        boolean flag = false;
+        for (int i = 2; i <= num / 2; ++i) {
+            if (num % i == 0) {
+                flag = true;
+                break;
             }
-            i++;
         }
-        if (sum == n) {
-            System.out.println(n + " is a Perfect Number ");
-        } else
-            System.out.println(n + " is not a Perfect Number ");
-        sc.close();
+
+        if (!flag)
+            System.out.println(num + " is a prime number.");
+        else
+            System.out.println(num + " is not a prime number.");
 	}
 
 }
